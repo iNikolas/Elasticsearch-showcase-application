@@ -1,0 +1,26 @@
+.app-main-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.user-card-wrapper {
+    flex-grow: 1;
+}
+
+.app-main-input {
+    display: block;
+    margin: 10px auto;
+    width: 60%;
+}
+
+@media screen and (orientation: landscape) {
+    .user-card-wrapper {
+        width: 40%;
+        max-width: 500px;
+    }
+    .app-main-wrapper {
+        margin-left: 25%;
+        margin-right: 2%;
+    }
+}

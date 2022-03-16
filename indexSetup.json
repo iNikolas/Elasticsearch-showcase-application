@@ -1,0 +1,136 @@
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "n_gram_analyzer": {
+          "type": "custom",
+          "filter": [
+            "lowercase",
+            "remove_duplicates",
+            "title_synonym_filter",
+            "autocomplete_1_char_filter"
+          ],
+          "tokenizer": "char_group_custom"
+        },
+        "3_char_n_gram_analyzer": {
+          "type": "custom",
+          "filter": [
+            "lowercase",
+            "remove_duplicates",
+            "title_synonym_filter",
+            "autocomplete_3_char_filter"
+          ],
+          "tokenizer": "char_group_custom"
+        },
+        "plain_analyzer": {
+          "type": "custom",
+          "filter": [
+            "lowercase",
+            "remove_duplicates"
+          ],
+          "tokenizer": "char_group_custom"
+        },
+        "input_analyzer": {
+          "type": "custom",
+          "filter": [
+            "lowercase",
+            "remove_duplicates"
+          ],
+          "tokenizer": "char_group_custom"
+        }
+      },
+      "tokenizer": {
+        "char_group_custom": {
+          "type": "char_group",
+          "tokenize_on_chars": [
+            "whitespace",
+            ".",
+            ",",
+            ":",
+            ";",
+            "-"
+          ]
+        }
+      },
+      "filter": {
+        "title_synonym_filter": {
+          "type": "synonym",
+          "synonyms": [
+            "front-end, fronend, фронтэнд, фронт-энд, фронтенд, фронт-енд",
+            "back-end, backend, бэкэнд, бэк-энд, бек-енд, бекенд",
+            "full-stack, fullstack, фуллстэк, фуллстак, фулл-стак, фулл-стэк, фулстак, фулстэк, фул-стэк, фул-стак",
+            "web designer, web-designer, вэб-дизайнер, вэбдизайнер, веб-дизайнер, вебдизайнер",
+            "wordpress, ворд-прэсс, вордпрэсс, ворд-пресс",
+            "web analyst, вэб аналитик, веб-аналитик, вэб-аналитик",
+            "ux designer, ux-designer, юх-дизайнер, юх дизайнер",
+            "technical consultant, технический консультант, тех консультант, тех-консультант"
+          ]
+        },
+        "autocomplete_1_char_filter": {
+          "type": "edge_ngram",
+          "min_gram": "1",
+          "max_gram": "20"
+        },
+        "autocomplete_3_char_filter": {
+          "type": "edge_ngram",
+          "min_gram": "3",
+          "max_gram": "20"
+        }
+      }
+    }
+  },
+  "mappings": {
+    "properties": {
+      "about_me": {
+        "type": "text",
+        "analyzer": "plain_analyzer",
+        "search_analyzer": "input_analyzer"
+      },
+      "avatar": {
+        "enabled": false
+      },
+      "country": {
+        "type": "text",
+        "analyzer": "3_char_n_gram_analyzer",
+        "search_analyzer": "input_analyzer"
+      },
+      "email": {
+        "enabled": false
+      },
+      "experience_years": {
+        "type": "byte"
+      },
+      "first_name": {
+        "type": "text",
+        "analyzer": "n_gram_analyzer",
+        "search_analyzer": "input_analyzer"
+      },
+      "gender": {
+        "type": "keyword"
+      },
+      "id": {
+        "type": "long"
+      },
+      "last_name": {
+        "type": "text",
+        "analyzer": "n_gram_analyzer",
+        "search_analyzer": "input_analyzer"
+      },
+      "previous_job": {
+        "type": "text",
+        "analyzer": "3_char_n_gram_analyzer",
+        "search_analyzer": "input_analyzer"
+      },
+      "title": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        },
+        "analyzer": "n_gram_analyzer",
+        "search_analyzer": "input_analyzer"
+      }
+    }
+  }
+}
