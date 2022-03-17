@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Elasticsearch-showcase-application/static/css/main.eb853158.css",
+    "main.css": "/Elasticsearch-showcase-application/static/css/main.78a7a89a.css",
     "main.js": "/Elasticsearch-showcase-application/static/js/main.c8f719de.js",
     "index.html": "/Elasticsearch-showcase-application/index.html",
-    "main.eb853158.css.map": "/Elasticsearch-showcase-application/static/css/main.eb853158.css.map",
+    "main.78a7a89a.css.map": "/Elasticsearch-showcase-application/static/css/main.78a7a89a.css.map",
     "main.c8f719de.js.map": "/Elasticsearch-showcase-application/static/js/main.c8f719de.js.map"
   },
   "entrypoints": [
-    "static/css/main.eb853158.css",
+    "static/css/main.78a7a89a.css",
     "static/js/main.c8f719de.js"
   ]
 }
